@@ -1,0 +1,9 @@
+- name: Copy tomcat file to servers
+  hosts: all
+  become: yes
+
+  tasks:
+    - name: Copy tomcat-users.xml
+      copy:
+        src: tomcat-users.xml
+        dest: /opt/tomcat/conf/tomcat-users.xml

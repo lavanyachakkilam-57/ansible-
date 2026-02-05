@@ -1,0 +1,9 @@
+- name: Copy files to remaining servers
+  hosts: all
+  become: yes
+
+  tasks:
+    - name: Copy all files from controller
+      copy:
+        src: files/
+        dest: /tmp/

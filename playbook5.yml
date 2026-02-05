@@ -1,0 +1,21 @@
+- name: Install git and clone repo
+  hosts: all
+  become: yes
+
+  tasks:
+    - name: Install git
+      apt:
+        name: git
+        state: present
+        update_cache: yes
+
+    - name: Create directory in /opt
+      file:
+        path: /opt/mygit
+        state: directory
+        mode: '0755'
+
+    - name: Clone git repo into /opt
+      git:
+        repo: https://github.com/IntelliqDevops/maven.git
+        dest: /opt/mygit
