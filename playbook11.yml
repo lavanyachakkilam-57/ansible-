@@ -1,0 +1,15 @@
+- name: Implementing global scope variables
+  hosts: all
+  become: yes
+
+  vars:
+    a: apache2
+    b: present
+    c: yes
+
+  tasks:
+    - name: Install/uninstall software apps
+      apt:
+        name: "{{ a }}"
+        state: "{{ b }}"
+        update_cache: "{{ c }}"

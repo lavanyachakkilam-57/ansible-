@@ -1,0 +1,28 @@
+- hosts: all
+  tasks:
+
+    - name: Install apache2
+      apt:
+        name: apache2
+        state: present
+        update_cache: yes
+
+    - name: Edit index.html file
+      copy:
+        content: "Intelliq-IT"
+        dest: /var/www/html/index.html
+
+    - name: Restart apache2
+      service:
+        name: apache2
+        state: restarted
+
+    - name: Check apache response server1
+      uri:
+        url: http://172.31.27.116
+        status_code: 200
+
+    - name: Check apache response server2
+      uri:
+        url: http://172.31.22.45
+        status_code: 200
