@@ -1,0 +1,10 @@
+[server]
+172.31.27.116
+
+[server:vars]
+a=lucky
+b=lucky123
+c=1050
+d=/home/lucky
+e=DevOps User
+f=/bin/bash
