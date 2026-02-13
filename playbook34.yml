@@ -1,0 +1,8 @@
+---
+- name: Call child tasks
+  hosts: all
+  become: yes
+
+  tasks:
+    - name: Include child task file
+      include_tasks: playbook33.yml

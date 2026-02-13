@@ -1,0 +1,19 @@
+---
+- name: Install maven based on OS Flavour
+  hosts: all
+  become: yes
+
+  tasks:
+
+    - name: Install maven using apt on Ubuntu servers
+      apt:
+        name: maven
+        state: present
+        update_cache: yes
+      when: ansible_distribution == "Ubuntu"
+
+    - name: Install maven using yum on RedHat servers
+      yum:
+        name: maven
+        state: present
+      when: ansible_distribution == "RedHat"

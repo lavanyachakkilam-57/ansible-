@@ -1,0 +1,4 @@
+- name: Edit the index.html file
+  copy:
+    content: "IntelliqIT"
+    dest: /var/www/html/index.html

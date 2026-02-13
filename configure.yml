@@ -1,0 +1,13 @@
+---
+- name: Call multiple child task files for apache2 configurations
+  hosts: all
+  become: yes
+
+  tasks:
+    - name: Call all child task files
+      include_tasks: "{{ playbook_dir }}/{{ item }}"
+      loop:
+        - install.yml
+        - edit_index.yml
+        - restart.yml
+        - check_url_response.yml
